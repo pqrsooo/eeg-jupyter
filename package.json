@@ -1,0 +1,21 @@
+{
+  "name": "eeg-jupyter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker run -it --rm -p 8888:8888 -e NB_UID=1000 --user root -v $(pwd):/home/jovyan/work jupyter/all-spark-notebook:c7fb6660d096",
+    "lab": "jupyter lab",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
