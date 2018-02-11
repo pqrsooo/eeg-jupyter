@@ -4,12 +4,16 @@ services:
     build: .
     volumes:
       - ./:/home/jovyan/work
+      - ./certs:/etc/ssl/notebook
     ports:
       - 8888:8888
     environment:
       - NB_UID=1000
       - NB_GID=100
-      - GEN_CERT=yes
       - GRANT_SUDO=yes
     user: root
-    command: start.sh jupyter lab
+    command: |
+      start.sh jupyter lab \
+      --NotebookApp.password='sha1:0e494b7eeb05:ac51b39dd83aa8d1e8a3bdedb6548a20fb437a3e' \
+      --NotebookApp.keyfile=/etc/ssl/notebook/notebook.key \
+      --NotebookApp.certfile=/etc/ssl/notebook/notebook.crt
