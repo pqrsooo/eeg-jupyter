@@ -8,5 +8,6 @@ services:
       - 8888:8888
     environment:
       - NB_UID=1000
+      - GEN_CERT=yes
     user: root
     command: start.sh jupyter lab
